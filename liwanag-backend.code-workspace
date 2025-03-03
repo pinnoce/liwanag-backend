@@ -1,0 +1,47 @@
+{
+	"folders": [
+		{
+			"name": "liwanag-backend",
+			"path": "."
+		}
+	],
+	"launch": {
+		"configurations": [
+			{
+				"type": "aws-sam",
+				"request": "direct-invoke",
+				"name": "liwanag-backend:HelloWorldFunction (python3.13)",
+				"invokeTarget": {
+					"target": "template",
+					"templatePath": "${workspaceFolder}/liwanag-backend/template.yaml",
+					"logicalId": "HelloWorldFunction"
+				},
+				"lambda": {
+					"payload": {},
+					"environmentVariables": {},
+					"runtime": "python3.13"
+				}
+			},
+			{
+				"type": "aws-sam",
+				"request": "direct-invoke",
+				"name": "API liwanag-backend:HelloWorldFunction (python3.13)",
+				"invokeTarget": {
+					"target": "api",
+					"templatePath": "${workspaceFolder}/liwanag-backend/template.yaml",
+					"logicalId": "HelloWorldFunction"
+				},
+				"api": {
+					"path": "/hello",
+					"httpMethod": "get",
+					"payload": {
+						"json": {}
+					}
+				},
+				"lambda": {
+					"runtime": "python3.13"
+				}
+			}
+		]
+	}
+}
