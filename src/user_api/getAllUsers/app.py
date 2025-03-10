@@ -3,7 +3,7 @@ import boto3
 from decimal import Decimal
 
 dynamodb = boto3.resource("dynamodb")
-users_table = dynamodb.Table("Users")
+table = dynamodb.Table("Users")
 
 # Function to convert DynamoDB response (with Decimal) to a serializable format
 def decimal_to_float(obj):
@@ -18,6 +18,7 @@ def decimal_to_float(obj):
         return obj
 
 def lambda_handler(event, context):
+    
     if event.get("httpMethod") != "GET":
         return {
             "statusCode": 405,
@@ -26,7 +27,7 @@ def lambda_handler(event, context):
 
     try:
         # Scan the Users table to get all items
-        response = users_table.scan()
+        response = table.scan()
 
         # Get the list of users from the response
         users = response.get("Items", [])

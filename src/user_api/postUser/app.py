@@ -15,6 +15,7 @@ def generate_unique_user_id():
     raise Exception("Failed to generate a unique user_id after multiple attempts")
 
 def lambda_handler(event, context):
+    
     if event.get("httpMethod") != "POST":
         return {
             "statusCode": 405,
@@ -38,7 +39,8 @@ def lambda_handler(event, context):
                 "body": json.dumps({"message": "Invalid JSON format"})
             }
 
-        required_fields = ["first_name", "last_name", "email"]
+        required_fields = ["first_name", "last_name", "email"] 
+        
         if not all(field in body and isinstance(body[field], str) for field in required_fields):
             return {
                 "statusCode": 400,

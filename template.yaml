@@ -42,6 +42,22 @@ Resources:
             Path: /users/{user_id}
             Method: patch
 
+  getUserById:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/user_api/getUserById
+      Handler: app.lambda_handler
+      Runtime: python3.13
+      Architectures:
+        - x86_64
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            # RestApiId: "lghoog0yu1"
+            Path: /users/{user_id}
+            Method: get          
+
   postUser:
     Type: AWS::Serverless::Function
     Properties:
