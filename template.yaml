@@ -32,6 +32,9 @@ Resources:
       CodeUri: src/user_api/patchUserById
       Handler: app.lambda_handler
       Runtime: python3.13
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AmazonDynamoDBFullAccess
       Architectures:
         - x86_64
       Events:
@@ -48,6 +51,9 @@ Resources:
       CodeUri: src/user_api/getUserById
       Handler: app.lambda_handler
       Runtime: python3.13
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AmazonDynamoDBFullAccess
       Architectures:
         - x86_64
       Events:
@@ -64,6 +70,16 @@ Resources:
       CodeUri: src/user_api/deleteUserById
       Handler: app.lambda_handler
       Runtime: python3.13
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AmazonDynamoDBFullAccess
+        - Statement:
+            - Effect: Allow
+              Action:
+                - dynamodb:DeleteResourcePolicy
+                - dynamodb:DeleteItem
+                - dynamodb:Query
+              Resource: arn:aws:dynamodb:us-west-1:207567790755:table/Users
       Architectures:
         - x86_64
       Events:
@@ -80,6 +96,9 @@ Resources:
       CodeUri: src/user_api/postUser
       Handler: app.lambda_handler
       Runtime: python3.13
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AmazonDynamoDBFullAccess
       Architectures:
         - x86_64
       Events:
@@ -96,6 +115,9 @@ Resources:
       CodeUri: src/user_api/getAllUsers
       Handler: app.lambda_handler
       Runtime: python3.13
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AmazonDynamoDBFullAccess
       Architectures:
         - x86_64
       Events:
