@@ -114,7 +114,7 @@ sam deploy --guided
 ```
 Follow the prompts to configure stack name (*liwanag-backend*), AWS region (*us-west-1*), and answer the next responses according to the image below.  
 
-![SAM deploy responses](https://photos.app.goo.gl/gusVPrfxuF6yhjzt5)
+[SAM Deploy Responses](https://photos.app.goo.gl/gusVPrfxuF6yhjzt5)
 
 After the first deployment, you can use:
 
@@ -126,9 +126,7 @@ sam deploy
 
 After deployment, you can travel to *liwanag-backend* found in API Gateway and go to Stages. There you will find the "Stage" stage and it's URL endpoint. Use it to test the function in [Postman](https://www.postman.com/) by creating a new request and choosing the *POST* method, shown in the image below.
 
-![Postman Request](https://photos.app.goo.gl/oSKL1wxcKbXVnNeeA)
-
-
+[Postman Request](https://photos.app.goo.gl/oSKL1wxcKbXVnNeeA)
 
 ## Additional Notes
 
