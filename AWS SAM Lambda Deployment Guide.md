@@ -64,23 +64,23 @@ Modify `template.yaml` to include the new function:
 ```yaml
 Resources:
 
-  addVocabulary:
-		Type: AWS::Serverless::Function
-		Properties:
-			CodeUri: src/word_api/addVocabulary
-			Handler: app.lambda_handler
-			Runtime: python3.13
-			Policies:
-				- AWSLambdaBasicExecutionRole
-			Architectures:
-				- x86_64
-			Events:
-				ApiEvent:
-					Type: Api
-					Properties:
-						# RestApiId: "lghoog0yu1"
-						Path: /words
-						Method: post
+	addVocabulary:
+	Type: AWS::Serverless::Function
+	Properties:
+		CodeUri: src/word_api/addVocabulary
+		Handler: app.lambda_handler
+		Runtime: python3.13
+		Policies:
+			- AWSLambdaBasicExecutionRole
+		Architectures:
+			- x86_64
+		Events:
+			ApiEvent:
+				Type: Api
+				Properties:
+					# RestApiId: "lghoog0yu1"
+					Path: /words
+					Method: post
 ```
 
 This hypothetical function would require access to DynamoDB , so you would have to update the IAM policy accordingly:
@@ -96,12 +96,12 @@ Some functions will require custom policies which you can also add in the templa
         - AWSLambdaBasicExecutionRole
         - AmazonDynamoDBFullAccess
         - Statement:
-						- Effect: Allow
-							Action:
-								- dynamodb:DeleteResourcePolicy
-								- dynamodb:DeleteItem
-								- dynamodb:Query
-							Resource: arn:aws:dynamodb:us-west-1:207567790755:table/Users					
+			- Effect: Allow
+				Action:
+					- dynamodb:DeleteResourcePolicy
+					- dynamodb:DeleteItem
+					- dynamodb:Query
+				Resource: arn:aws:dynamodb:us-west-1:207567790755:table/Users					
 ```
 If you want to see what the template looks like for a DynamoDB table, you can take a look in the *user_api* GitHub repository branch.
 
