@@ -130,6 +130,7 @@ After deployment, you can travel to *liwanag-backend* found in API Gateway and g
 
 ## Additional Notes
 
+-	After updating/creating new functions **DO NOT FORGET TO PUSH BRANCH TO GITHUB**. Create a new branch for a new API if it does not exist already.
 -   If using DynamoDB, ensure IAM roles are updated for Lambda permissions.
 -   To update an existing function, modify `app.py`, then rebuild and redeploy using `sam deploy`.
 -   To add another API, repeat steps 3–5, adjusting paths and function names accordingly.
