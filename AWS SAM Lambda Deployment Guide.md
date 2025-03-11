@@ -114,7 +114,7 @@ sam deploy --guided
 ```
 Follow the prompts to configure stack name (*liwanag-backend*), AWS region (*us-west-1*), and answer the next responses according to the image below.  
 
-![SAM Deploy Responses](https://photos.app.goo.gl/gusVPrfxuF6yhjzt5)
+![SAM deploy responses](https://photos.app.goo.gl/gusVPrfxuF6yhjzt5)
 
 After the first deployment, you can use:
 
