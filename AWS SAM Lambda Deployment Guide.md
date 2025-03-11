@@ -26,7 +26,7 @@ You need to configure your AWS credentials before deploying:
 ```sh
 aws configure
 ```
-Enter the following details:
+Enter the following details (you can find them by traveling to the AWS Management Console, searching for *IAM*, going to *Users*, then your own user account, then *Security Credentials*, and create Access Key, also **download your csv** so you don't forget):
 
 -   **AWS Access Key ID**
 -   **AWS Secret Access Key**
